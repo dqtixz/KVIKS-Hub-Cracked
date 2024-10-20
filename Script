@@ -1,0 +1,1422 @@
+if not game:IsLoaded() then
+   game.Loaded:Wait()
+end
+game:GetService("GuiService"):ClearError()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/kviks/Orion-Lib-Redacted/refs/heads/main/orion.lua')))()
+if game.PlaceId == 6403373529 or game.PlaceId == 9015014224 then
+   local Window = OrionLib:MakeWindow({IntroText = "Kviks's Hub", Name = "Kviks's Hub | Slap Battles 👏", HidePremium = false, intoText = "Kviks's Hub", SaveConfig = true, ConfigFolder = "SB"})
+
+   local Tab = Window:MakeTab({
+      Name = "Info",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   local Tab1 = Window:MakeTab({
+      Name = "Events",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   local Tab2 = Window:MakeTab({
+      Name = "Antis",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   local Tab3 = Window:MakeTab({
+      Name = "Limbo Helper",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   local Tab4 = Window:MakeTab({
+      Name = "Badges",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   local Tab5 = Window:MakeTab({
+      Name = "Teleports",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   -- local SPOOFERTAB = Window:MakeTab({
+   -- 	Name = "Spoofer",
+   -- 	Icon = "rbxassetid://4483345998",
+   -- 	PremiumOnly = false
+   -- })
+   local Tab6 = Window:MakeTab({
+      Name = "Misc",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   local Tab7 = Window:MakeTab({
+      Name = "Glove Optional",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   local Tab8 = Window:MakeTab({
+      Name = "Credits",
+      Icon = "rbxassetid://4483345998",
+      PremiumOnly = false
+   })
+   if workspace:FindFirstChild("Safespot") == nil then
+      local Safespot = Instance.new("Part",workspace)
+      Safespot.Name = "Safespot"
+      Safespot.Position = Vector3.new(10000,-50,10000)
+      Safespot.Size = Vector3.new(500,10,500)
+      Safespot.Anchored = true
+      Safespot.CanCollide = true
+      Safespot.Transparency = .5
+
+      local Safespot1 = Instance.new("Part",workspace)
+      Safespot1.Name = "DefendPart"
+      Safespot1.Position = Vector3.new(10000.2, 13, 9752.45)
+      Safespot1.Size = Vector3.new(500, 117, 5)
+      Safespot1.Anchored = true
+      Safespot1.CanCollide = true
+      Safespot1.Transparency = .5
+      Safespot1.Parent = game.workspace.Safespot
+
+      local Safespot2 = Instance.new("Part",workspace)
+      Safespot2.Name = "DefendPart1"
+      Safespot2.Position = Vector3.new(10248.2, 13, 10002.4)
+      Safespot2.Size = Vector3.new(5, 117, 496)
+      Safespot2.Anchored = true
+      Safespot2.CanCollide = true
+      Safespot2.Transparency = .5
+      Safespot2.Parent = game.workspace.Safespot
+
+      local Safespot3 = Instance.new("Part",workspace)
+      Safespot3.Name = "DefendPart2"
+      Safespot3.Position = Vector3.new(9998.13, 13, 10247.2)
+      Safespot3.Size = Vector3.new(497, 117, 6)
+      Safespot3.Anchored = true
+      Safespot3.CanCollide = true
+      Safespot3.Transparency = .5
+      Safespot3.Parent = game.workspace.Safespot
+
+      local Safespot4 = Instance.new("Part",workspace)
+      Safespot4.Name = "DefendPart3"
+      Safespot4.Position = Vector3.new(9752.71, 13, 9999.28)
+      Safespot4.Size = Vector3.new(7, 117, 490)
+      Safespot4.Anchored = true
+      Safespot4.CanCollide = true
+      Safespot4.Transparency = .5
+      Safespot4.Parent = game.workspace.Safespot
+
+      local Safespot5 = Instance.new("Part",workspace)
+      Safespot5.Name = "DefendPart4"
+      Safespot5.Position = Vector3.new(10001.1, 76, 9999.66)
+      Safespot5.Size = Vector3.new(491, 10, 491)
+      Safespot5.Anchored = true
+      Safespot5.CanCollide = true
+      Safespot5.Transparency = .5
+      Safespot5.Parent = game.workspace.Safespot
+   end
+   Tab:AddParagraph("Thanks, for playing with this script!"," Join our Discord!")
+
+   local InfoServer = Tab:AddSection({Name = "ONLY IN HALLOWEEN [2024]"})
+   GraveTimer = Tab:AddLabel("Next Grave Teleport: "..game.workspace.Halloween.SignStuff.Sign.SG1.T.Text)
+   if not game.Workspace:FindFirstChild("Gravestone") then
+      GraveSpawned = Tab:AddLabel("Grave Spawned: No")
+   else
+      GraveSpawned = Tab:AddLabel("Grave Spawned: Yes")
+   end
+
+   local InfoServer = Tab:AddSection({Name = "Server Information"})
+   ServerPlayer = Tab:AddLabel("Players: "..#game.Players:GetPlayers().." / "..game.Players.MaxPlayers)
+   ViewAgeServer = Tab:AddLabel(game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text)
+   CodeKeypad = Tab:AddLabel("Keypad Code: "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7))
+
+   if not game.Workspace:FindFirstChild("Keypad") then
+      KeypadSpawn = Tab:AddLabel("Keypad Spawned: No")
+   else
+      KeypadSpawn = Tab:AddLabel("Keypad Spawned: Yes")
+   end
+   if not game.Workspace:FindFirstChild("Toolbox") then
+      ToolboxSpawn = Tab:AddLabel("Toolbox Spawned: No")
+   else
+      ToolboxSpawn = Tab:AddLabel("Toolbox Spawned: Yes")
+   end
+   if not game.Workspace:FindFirstChild("SiphonOrb") then
+      SiphonOrbSpawn = Tab:AddLabel("Siphon Orb Spawned: No")
+   else
+      SiphonOrbSpawn = Tab:AddLabel("Siphon Orb Spawned: Yes")
+   end
+
+   local InfoServer = Tab:AddSection({Name = "Player"})
+
+   CheckSlap = Tab:AddLabel("My Slaps: "..game.Players.LocalPlayer.leaderstats.Slaps.Value)
+   Glove = Tab:AddLabel("My Glove: "..game.Players.LocalPlayer.leaderstats.Glove.Value)
+   PositionYou = Tab:AddLabel("My Position "..tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X)..", ".. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y)..", "..math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)))
+   if game.Players.LocalPlayer.Character:FindFirstChild("rock") then
+      WalkspeedYou = Tab:AddLabel("🗿")
+      JumppowerYou = Tab:AddLabel("🗿")
+   else
+      WalkspeedYou = Tab:AddLabel("My Walk Speed: "..game.Players.LocalPlayer.Character.Humanoid.WalkSpeed)
+      JumppowerYou = Tab:AddLabel("My Jump Power: "..game.Players.LocalPlayer.Character.Humanoid.JumpPower)
+   end
+   CanYouFps = Tab:AddLabel("FPS: "..math.floor(workspace:GetRealPhysicsFPS()))
+   CanYouPing = Tab:AddLabel("Ping: "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString())
+   AgeAccYou = Tab:AddLabel("Account Age: "..game.Players.LocalPlayer.AccountAge)
+
+   local InfoServer = Tab5:AddSection({Name = "Secret Teleporting Tool *shh*"})
+
+   local InfoServer = Tab1:AddSection({Name = "Halloween"})
+   local CandyCornsFarm
+   Tab1:AddToggle({
+      Name = "Auto Collect Candies",
+      Default = false,
+      Callback = function(Value)
+         CandyCornsFarm = Value
+         while CandyCornsFarm do
+            for i, v in pairs(game.Workspace.CandyCorns:GetChildren()) do
+               if game.Players.LocalPlayer.Character:FindFirstChild("Head") and v:FindFirstChildWhichIsA("TouchTransmitter") then
+                  firetouchinterest(game.Players.LocalPlayer.Character.Head, v, 0)
+                  firetouchinterest(game.Players.LocalPlayer.Character.Head, v, 1)
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+   Tab1:AddButton({
+      Name = "Teleport To Grave",
+      Callback = function()
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(408, 360, -23)
+      end    
+   })
+
+   AU = Tab1:AddToggle({
+      Name = "Farm Grave",
+      Default = false,
+      Callback = function(Value)
+         _G.FG = Value
+         while _G.FG do
+            local textValue = game.Players.LocalPlayer.Character.Head.Nametag.TextLabel.Text
+            local killCount = tonumber(textValue)
+            local gravestone = game.Workspace:FindFirstChild("Gravestone")
+            if game.Players.LocalPlayer.leaderstats.Glove.Value == "Killstreak" then
+               if killCount and killCount == 10 then
+
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Safespot"].CFrame * CFrame.new(0,10,0)
+
+                  if gravestone then
+                     fireclickdetector(gravestone.ClickDetector)
+                  else
+                     -- print("hello")
+                  end
+               else
+                  OrionLib:MakeNotification({Name = "Error",Content = "you have <10 kills",Image = "rbxassetid://7733658504",Time = 5})
+                  task.wait(0.5)
+                  AU:Set(false)
+               end
+            else
+               OrionLib:MakeNotification({Name = "Error",Content = "you don't equipped killstreak",Image = "rbxassetid://7733658504",Time = 5})
+               task.wait(0.5)
+               AU:Set(false)
+            end
+            task.wait()
+         end  
+      end
+   })
+
+   local gloveStands = game.Workspace.Lobby.GloveStands
+   local count = 0
+
+   for _, stand in pairs(gloveStands:GetChildren()) do
+      if stand.Name ~= "Unknown" then
+         count = count + 1
+      end
+   end
+
+   Tab5:AddDropdown({
+      Name = "All",
+      Default = "",
+      Options = {"Arena", "Lobby", "Hunter Room", "Brazil", "Island Slapple", "Plate", "Tournament", "Cannon Island", "Equip Glovel", "Keypad", "Cube Of Death", "Moai Island", "Default Arena", "Island 1", "Island 2", "Island 3"},
+      Callback = function(Value)
+         if Value == "Arena" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
+         elseif Value == "Lobby" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-800,328,-2.5)
+         elseif Value == "Hunter Room" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.BountyHunterRoom.Union.CFrame * CFrame.new(0,5,0)
+         elseif Value == "Brazil" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
+         elseif Value == "Island Slapple" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.island5.Union.CFrame * CFrame.new(0,3.25,0)
+         elseif Value == "Plate" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Arena.Plate.CFrame
+         elseif Value == "Tournament" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
+         elseif Value == "Cannon Island" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.CannonIsland.Cannon.Base.CFrame * CFrame.new(0,0,35)
+         elseif Value == "Equip Glovel" then
+            if game.Players.LocalPlayer.leaderstats.Glove.Value == "Extended" and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.CannonIsland.GlovelHoleInTheWall.GlovelHoleInTheWall.CFrame
+            else
+               OrionLib:MakeNotification({Name = "Error",Content = "You don't have Extended equipped.",Image = "rbxassetid://7733658504",Time = 5})
+            end
+         elseif Value == "Keypad" then
+            if not workspace:FindFirstChild("Keypad") then
+               OrionLib:MakeNotification({Name = "Error",Content = "Server in don't have keypad.",Image = "rbxassetid://7733658504",Time = 5})
+            else
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Keypad.Buttons.Enter.CFrame
+            end
+         elseif Value == "Cube Of Death" then
+            if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].Part.CFrame * CFrame.new(0,5,0)
+            end
+         elseif Value == "Moai Island" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(215, -15.5, 0.5)
+         elseif Value == "Default Arena" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,360,-3)
+         elseif Value == "Island 1" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-211.210846, -5.27827597, 4.13719559, -0.0225322824, 1.83683113e-08, -0.999746144, -1.83560154e-08, 1, 1.87866842e-08, 0.999746144, 1.87746618e-08, -0.0225322824)
+         elseif Value == "Island 2" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8.17191315, -5.14452887, -205.249741, -0.98216176, -3.48867246e-09, -0.188037917, -4.19987778e-09, 1, 3.38382322e-09, 0.188037917, 4.11319823e-09, -0.98216176)
+         elseif Value == "Island 3" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6.66747713, -5.06731462, 213.575378, 0.945777893, 2.52095178e-10, 0.324814111, -3.7823856e-08, 1, 1.09357536e-07, -0.324814111, -1.15713661e-07, 0.945777893)
+         end
+      end
+   })
+
+   Tab5:AddDropdown({
+      Name = "Arena smth",
+      Default = "",
+      Options = {"Arena", "Brazil", "Island Slapple", "Plate", "Tournament", "Cannon Island", "Keypad", "Cube Of Death", "Moai Island", "Default Arena", "Island 1", "Island 2", "Island 3"},
+      Callback = function(Value)
+         if Value == "Arena" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Origo.CFrame * CFrame.new(0,-5,0)
+         elseif Value == "Brazil" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
+         elseif Value == "Island Slapple" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.island5.Union.CFrame * CFrame.new(0,3.25,0)
+         elseif Value == "Plate" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Arena.Plate.CFrame
+         elseif Value == "Tournament" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Battlearena.Arena.CFrame * CFrame.new(0,10,0)
+         elseif Value == "Cannon Island" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.CannonIsland.Cannon.Base.CFrame * CFrame.new(0,0,35)
+         elseif Value == "Keypad" then
+            if not workspace:FindFirstChild("Keypad") then
+               OrionLib:MakeNotification({Name = "Error",Content = "Server in don't have keypad.",Image = "rbxassetid://7733658504",Time = 5})
+            else
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Keypad.Buttons.Enter.CFrame
+            end
+         elseif Value == "Cube Of Death" then
+            if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) then
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].Part.CFrame * CFrame.new(0,5,0)
+            end
+         elseif Value == "Moai Island" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(215, -15.5, 0.5)
+         elseif Value == "Default Arena" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(120,360,-3)
+         elseif Value == "Island 1" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-211.210846, -5.27827597, 4.13719559, -0.0225322824, 1.83683113e-08, -0.999746144, -1.83560154e-08, 1, 1.87866842e-08, 0.999746144, 1.87746618e-08, -0.0225322824)
+         elseif Value == "Island 2" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8.17191315, -5.14452887, -205.249741, -0.98216176, -3.48867246e-09, -0.188037917, -4.19987778e-09, 1, 3.38382322e-09, 0.188037917, 4.11319823e-09, -0.98216176)
+         elseif Value == "Island 3" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6.66747713, -5.06731462, 213.575378, 0.945777893, 2.52095178e-10, 0.324814111, -3.7823856e-08, 1, 1.09357536e-07, -0.324814111, -1.15713661e-07, 0.945777893)
+         end   
+      end
+   })
+
+   Tab5:AddDropdown({
+      Name = "Lobby",
+      Default = "",
+      Options = {"Arena", "Hunter Room", "Brazil", "Default Arena"},
+      Callback = function(Value)
+         if Value == "Lobby" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-800,328,-2.5)
+         elseif Value == "Hunter Room" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.BountyHunterRoom.Union.CFrame * CFrame.new(0,5,0)
+         elseif Value == "Brazil" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Lobby.brazil.portal.CFrame
+         end 
+      end   
+   })
+   
+   local Giftfarm
+   local InfoServer = Tab1:AddSection({Name = "Christmas"})
+   Tab1:AddToggle({
+      Name = "Auto Gift",
+      Default = false,
+      Callback = function(Value)
+         Giftfarm = Value
+         while Giftfarm do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.Name == "Gift" then
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), v, 0)
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), v, 1)
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+   -- local InfoServer = Tab1:AddSection({Name = "soon..."})
+
+   Tab8:AddSection({Name = "Credits"})
+   Tab8:AddLabel("Script by kviks")
+   Tab8:AddLabel("Special Thanks To My Friends")
+   Tab8:AddLabel("MrArgy and Sandy_Tix")
+   Tab8:AddLabel("And Extra Special Thanks To")
+   Tab8:AddLabel("You♡")
+
+   Tab8:AddButton({
+      Name = "Copy join link to Discord Channel",
+      Callback = function()
+         setclipboard("https://discord.gg/TeHxKmYjkn")
+      end    
+   })
+
+   local InfoServer = Tab3:AddSection({Name = "Limbo Helper"})
+   local InfoServer = Tab4:AddSection({Name = "Farm Badges Menu"})
+   GloveStands = Tab3:AddLabel("Glove Stands: ".. count)
+
+   Tab4:AddButton({
+      Name = "All ez badges",
+      Callback = function()
+         fireclickdetector(game.Workspace.Lobby.Scene.knofe.ClickDetector)
+         fireclickdetector(game.Workspace.Arena.island5.Orange.ClickDetector) 
+         fireclickdetector(game.Workspace.Arena["default island"]["Rubber Ducky"].ClickDetector)
+         game:GetService("ReplicatedStorage").IceSkate:FireServer("Freeze")
+         OrionLib:MakeNotification({Name = "Error",Content = "ezzz",Image = "rbxassetid://7733658504",Time = 5})
+      end
+   })
+
+   Tab4:AddButton({
+      Name = "Get Treasure Chest (Quest)",
+      Callback = function()
+         if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+            repeat task.wait()
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(289, 13, 261)
+               game:GetService("ReplicatedStorage").DigEvent:FireServer({["index"] = 2,["cf"] = CFrame.new(42.7222366, -6.17449856, 91.5175781, -0.414533257, 1.72594355e-05, -0.91003418, -5.57037238e-05, 1, 4.4339522e-05, 0.91003418, 6.90724992e-05, -0.414533257)})
+            until game.Workspace:FindFirstChild("TreasureChestFolder") ~= nil and game.Workspace.TreasureChestFolder:FindFirstChild("TreasureChest") ~= nil
+            wait(1)
+            game.Workspace.TreasureChestFolder.TreasureChest.OpenRemote:FireServer()
+            wait(0.9)
+            game.ReplicatedStorage.HumanoidDied:FireServer(game.Players.LocalPlayer.Character,false)
+            wait(3.75)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.BountyHunterRoom.BountyHunterBooth._configPart.CFrame * CFrame.new(-5,0,0)
+         else
+            OrionLib:MakeNotification({Name = "Error",Content = "Bro 200iq, join in arena",Image = "rbxassetid://7733658504",Time = 5})
+         end
+      end    
+   })
+
+   Tab4:AddButton({
+      Name = "Get Frostbite",
+      Callback = function()
+         local teleportFunc = queueonteleport or queue_on_teleport
+         if teleportFunc then
+            teleportFunc([[
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+repeat wait() until game.Players.LocalPlayer
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-554, 177, 56)
+wait(0.7)
+for i,v in ipairs(game:GetService("Workspace"):GetDescendants()) do
+if v.ClassName == "ProximityPrompt" then
+fireproximityprompt(v)
+end
+end
+]])
+         end
+         game:GetService("TeleportService"):Teleport(17290438723)
+      end    
+   })
+
+   Tab4:AddButton({
+      Name = "Get Admin Glove",
+      Callback = function()
+         local teleportFunc = queueonteleport or queue_on_teleport
+         if teleportFunc then
+            teleportFunc([[
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+repeat wait() until game.Players.LocalPlayer
+wait(13.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(502, 76, 59)
+task.wait(6)
+if getconnections then
+for i,v in next, getconnections(game.Players.LocalPlayer.Idled) do
+v:Disable() 
+end
+end
+]])
+         end
+         if game:GetService("ReplicatedStorage").Assets.Retro then
+            game.ReplicatedStorage.Assets.Retro.Parent = workspace
+            wait(1.5)
+            fireclickdetector(workspace.Retro.Map.RetroObbyMap:GetChildren()[5].StaffApp.Button.ClickDetector)
+         else
+            fireclickdetector(workspace.Retro.Map.RetroObbyMap:GetChildren()[5].StaffApp.Button.ClickDetector)
+         end
+      end    
+   })
+
+   Tab4:AddButton({
+      Name = "[REDACTED]",
+      Callback = function()
+         if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 5000 then
+            Door = 0
+            for i = 1, 10 do
+               Door = Door + 1
+               if game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2124847850) then
+                  Door = nil
+               else
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 0)
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.PocketDimension.Doors[Door].TouchInterest.Parent, 1)
+                  wait(3.75)
+               end
+            end
+         else
+            OrionLib:MakeNotification({Name = "Error",Content = "maybe you haven't 5000 slaps?",Image = "rbxassetid://7733658504",Time = 5})
+         end
+      end    
+   })
+
+   Tab4:AddToggle({
+      Name = "Get Phase & Jet(10% every 10 minutes)",
+      Default = false,
+      Callback = function(Value)
+         _G.PhaseOrJetfarm = Value
+         while _G.PhaseOrJetfarm do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.Name == "JetOrb" or v.Name == "PhaseOrb" then
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AutoTycoon = Tab4:AddToggle({
+      Name = "Get Tycoon",
+      Default = false,
+      Callback = function(Value)
+         _G.AutoTpPlate = Value
+         if game.Players.LocalPlayer.Character:FindFirstChild("entered") and #game.Players:GetPlayers() >= 7 then
+            while _G.AutoTpPlate do
+               if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("entered") and #game.Players:GetPlayers() >= 7 then
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Arena.Plate.CFrame
+               end
+               task.wait()
+            end
+         elseif _G.AutoTpPlate == true then
+            OrionLib:MakeNotification({Name = "Error",Content = "maybe not in arena or maybe server <7 peoples",Image = "rbxassetid://7733658504",Time = 5})
+            wait(0.05)
+            AutoTycoon:Set(false)
+         end
+      end    
+   })
+
+   Tab4:AddButton({
+      Name = "Get Kinetic",
+      Callback = function()
+         if game.Players.LocalPlayer.leaderstats.Glove.Value == "Stun" and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+            OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            for i = 1,150 do
+               game.ReplicatedStorage.SelfKnockback:FireServer({["Force"] = 0,["Direction"] = Vector3.new(0,0.01,0)})
+               wait(0.05)
+            end
+            wait(1.5)
+            repeat
+               local players = game.Players:GetChildren()
+               local RandomPlayer = players[math.random(1, #players)]
+               repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= game.Players.LocalPlayer and RandomPlayer.Character:FindFirstChild("entered") and RandomPlayer.Character:FindFirstChild("rock") == nil and RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil and RandomPlayer.Character.Humanoid.Health ~= 0
+               Target = RandomPlayer
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.new(0,-20,0)
+               wait(0.25)
+               game.ReplicatedStorage.StunR:FireServer(game.Players.LocalPlayer.Character.Stun)
+               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+               wait(0.5)
+               if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") then
+                  OrionLib:MakeNotification({Name = "Error",Content = "Counter Stun: "..game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value,Image = "rbxassetid://7733658504",Time = 5})
+               end
+               wait(12.3)
+            until game.Players.LocalPlayer.Character:FindFirstChild("EMPStunBadgeCounter") and game.Players.LocalPlayer.Character.EMPStunBadgeCounter.Value >= 50
+         else
+            OrionLib:MakeNotification({Name = "Error",Content = "equip stun or join in arena genious",Image = "rbxassetid://7733658504",Time = 5})
+         end
+      end 
+   })  
+
+   Tab4:AddButton({
+      Name = "Get Plank",
+      Callback = function()
+         if game.Players.LocalPlayer.leaderstats.Glove.Value == "Fort" and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 4031317971987872) then
+            OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8, 97, 4)
+            wait(0.2)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+            wait(0.3)
+            game:GetService("ReplicatedStorage").Fortlol:FireServer()
+            wait(3.5)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+            wait(0.1)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(8, 106, -6)
+            wait(0.5)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+         else
+            OrionLib:MakeNotification({Name = "Error",Content = "equip fort !!!!DONT USE SHIFTLOCK!!!!!, or stop wasting time",Image = "rbxassetid://7733658504",Time = 5})
+         end
+      end    
+   })
+
+   Tab4:AddButton({
+      Name = "Get Chain",
+      Callback = function()
+         if game.Players.LocalPlayer.leaderstats.Slaps.Value >= 1000 then
+            local teleportFunc = queueonteleport or queue_on_teleport
+            if teleportFunc then
+               teleportFunc([[
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.Workspace:FindFirstChild("Map"):FindFirstChild("CodeBrick")
+if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
+game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "1st"
+game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "2nd"
+game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "3rd"
+game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "4th"
+end
+for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+if v.Name == "1st" then
+if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+first = "4"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+first = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+first = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+first = "9"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+first = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+first = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+first = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+first = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+first = "7"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+first = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+first = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+first = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+first = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+first = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+first = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+first = "2"
+end
+end
+end
+for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+if v.Name == "2nd" then
+if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+second = "4"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+second = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+second = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+second = "9"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+second = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+second = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+second = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+second = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+second = "7"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+second = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+second = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+second = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+second = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+second = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+second = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+second = "2"
+end
+end
+end
+for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+if v.Name == "3rd" then
+if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+third = "4"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+third = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+third = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+third = "9"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+third = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+third = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+third = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+third = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+third = "7"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+third = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+third = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+third = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+third = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+third = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+third = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+third = "2"
+end
+end
+end
+for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+if v.Name == "4th" then
+if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+fourth = "4"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+fourth = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+fourth = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+fourth = "9"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+fourth = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+fourth = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+fourth = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+fourth = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+fourth = "7"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+fourth = "8"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+fourth = "2"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+fourth = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+fourth = "3"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+fourth = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+fourth = "6"
+elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+fourth = "2"
+end
+end
+end
+fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Reset.ClickDetector)
+task.wait(0.1)
+fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[first].ClickDetector)
+task.wait(0.1)
+fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[second].ClickDetector)
+task.wait(0.1)
+fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[third].ClickDetector)
+task.wait(0.1)
+fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[fourth].ClickDetector)
+task.wait(0.1)
+fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Enter.ClickDetector)
+task.wait(2)
+game:GetService("TeleportService"):Teleport(6403373529)
+]])
+            end
+            game:GetService("TeleportService"):Teleport(9431156611)
+         else
+            OrionLib:MakeNotification({Name = "Error",Content = "and where is your 1k slaps?",Image = "rbxassetid://7733658504",Time = 5})
+         end
+      end    
+   })
+
+   Tab4:AddButton({
+      Name = "Get Blasphemy",
+      Callback = function()
+         if game.Players.LocalPlayer.leaderstats.Glove.Value == "bus" and not game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061) then
+            OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            repeat
+               if game.Players.LocalPlayer.Character.Humanoid.Health == 0 or game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+                  break
+               end
+               if game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+                  local players = game.Players:GetChildren()
+                  local RandomPlayer = players[math.random(1, #players)]
+                  repeat RandomPlayer = players[math.random(1, #players)] until RandomPlayer ~= game.Players.LocalPlayer and RandomPlayer.Character:FindFirstChild("rock") == nil and RandomPlayer.Character.Head:FindFirstChild("UnoReverseCard") == nil and RandomPlayer.Character:FindFirstChild("entered")
+                  Target = RandomPlayer
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+                  task.wait(0.34)
+                  game:GetService("ReplicatedStorage").busmoment:FireServer()
+                  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
+                  wait(1.5)
+                  game.ReplicatedStorage.SelfKnockback:FireServer({["Force"] = 0,["Direction"] = Vector3.new(0,0.01,0)})
+                  wait(0.8)
+                  for i = 1,50 do
+                     for i,v in pairs(game.Workspace:GetChildren()) do
+                        if v.Name == "BusModel" then
+                           v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                        end
+                     end
+                     task.wait()
+                  end
+               end
+               task.wait(3.5)
+            until game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 3335299217032061)
+         else
+            OrionLib:MakeNotification({Name = "Error",Content = "equip bus, or stop wasting time",Image = "rbxassetid://7733658504",Time = 5})
+         end
+      end    
+   })
+
+   Tab4:AddButton({
+      Name = "Get Schlop",
+      Callback = function()
+         if game.Players.LocalPlayer.leaderstats.Glove.Value == "Cloud" and game:GetService("BadgeService"):UserHasBadgeAsync(game.Players.LocalPlayer.UserId, 2130032297) and game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.Arena.CannonIsland.Cannon.Base.CFrame * CFrame.new(0,2,35)
+            wait(0.3)
+            game:GetService("ReplicatedStorage").CloudAbility:FireServer()
+            fireclickdetector(workspace.Lobby.fish.ClickDetector)
+            wait(0.2)
+            repeat task.wait() until game.Players.LocalPlayer.Character
+            if not game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+               repeat task.wait()
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 0)
+                  firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), workspace.Lobby.Teleport1.TouchInterest.Parent, 1)
+               until game.Players.LocalPlayer.Character:FindFirstChild("entered")
+            end
+            wait(0.3)
+            if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.Sit == false then
+               for i,v in pairs(game.Workspace:GetChildren()) do
+                  if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("VehicleSeat") then
+                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.VehicleSeat.CFrame
+                  end
+               end
+            end
+            wait(0.7)
+            for _ = 1, 10 do
+               for i,v in pairs(game.Workspace:GetChildren()) do
+                  if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("VehicleSeat") then
+                     v.VehicleSeat.CFrame = CFrame.new(245, 129, -91)
+                  end
+               end
+               task.wait()
+            end
+            wait(0.4)
+            game:GetService("ReplicatedStorage"):WaitForChild("GeneralAbility"):FireServer()
+            wait(0.5)
+            repeat task.wait()
+               if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("entered") then
+                  for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+                     if v.ClassName == "Part" and v.Name ~= "Humanoid" then
+                        v.CFrame = game.workspace.Arena.Plate.CFrame
+                     end
+                  end
+               end
+            until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
+         else
+            OrionLib:MakeNotification({Name = "Error",Content = "equip cloud or you haven't fish badge or you not in arena ;p",Image = "rbxassetid://7733658504",Time = 5})
+         end
+      end 
+   })
+
+   Tab4:AddToggle({
+      Name = "Get Siphon",
+      Default = false,
+      Callback = function(Value)
+         _G.Siphonfarm = Value
+         while _G.Siphonfarm do
+            if game.Workspace:FindFirstChild("SiphonOrb") then
+               for i,v in pairs(game.Workspace:GetChildren()) do
+                  if v.Name == "SiphonOrb" then
+                     firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 0)
+                     firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Head"), v, 1)
+                  end
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   local InfoServer = Tab2:AddSection({Name = "Antis Menu"})
+   AntiAdmin = Tab2:AddToggle({
+      Name = "Anti Staff",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiMods = Value
+         while _G.AntiMods do
+            for i,v in pairs(game.Players:GetChildren()) do
+               if v:GetRankInGroup(9950771) >= 2 then
+                  _G.AntiKick = false
+                  game.Players.LocalPlayer:Kick("hell nah, admin joined u with name ".." [ "..v.Name.." ]")
+                  break
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiObby = Tab2:AddToggle({
+      Name = "Anti Obby",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiObby = Value
+         while _G.AntiObby do
+            for _, v in pairs(game.Workspace:GetChildren()) do
+               if string.find(v.Name, "LavaSpinner") or string.find(v.Name, "LavaBlock") then
+                  if v.CanTouch == true then
+                     v.CanTouch = false
+                  end
+               end
+            end
+            task.wait()
+         end
+         if _G.AntiObby == false then
+            for _, v in pairs(game.Workspace:GetChildren()) do
+               if string.find(v.Name, "LavaSpinner") or string.find(v.Name, "LavaBlock") then
+                  if v.CanTouch == false then
+                     v.CanTouch = true
+                  end
+               end
+            end
+         end
+      end    
+   })
+
+   AntiRock = Tab2:AddToggle({
+      Name = "Anti MEGAROCK / CUSTOM",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiRock = Value
+         while _G.AntiRock do
+            for _,v in pairs(game.Players:GetChildren()) do
+               if v.Character:FindFirstChild("rock") then
+                  v.Character:FindFirstChild("rock").CanTouch = false
+                  v.Character:FindFirstChild("rock").CanQuery = false
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiBallBaller = Tab2:AddToggle({
+      Name = "Anti Baller",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiBallBaller = Value
+         while _G.AntiBallBaller do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.Name == "ClonedBall" then
+                  v.CanTouch = false
+                  v.CanCollide = true
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiBus = Tab2:AddToggle({
+      Name = "Anti Bus",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiBus = Value
+         while _G.AntiBus do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.Name == "BusModel" then
+                  v.CanTouch = false
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiLure = Tab2:AddToggle({
+      Name = "Anti Lure",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiLure = Value
+         while _G.AntiLure do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if string.find(v.Name, "_lure") and v:FindFirstChild("Root") and v:FindFirstChild("watercircle") then
+                  v.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                  v.watercircle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiMail = Tab2:AddToggle({
+      Name = "Anti Mail",
+      Default = false,
+      Callback = function(Value)
+         game.Players.LocalPlayer.Character.YouHaveGotMail.Disabled = Value
+         _G.AntiMail = Value
+         while _G.AntiMail do
+            if game.Players.LocalPlayer.Character:FindFirstChild("YouHaveGotMail") then
+               game.Players.LocalPlayer.Character.YouHaveGotMail.Disabled = true
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiMittenBl = Tab2:AddToggle({
+      Name = "Anti Mitten Blind",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiMittenBlind = Value
+         while _G.AntiMittenBlind do
+            if game.Players.LocalPlayer.PlayerGui:FindFirstChild("MittenBlind") then
+               game.Players.LocalPlayer.PlayerGui:FindFirstChild("MittenBlind"):Destroy()
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiKnock = Tab2:AddToggle({
+      Name = "Anti Knockoff",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiKnock = Value
+         while _G.AntiKnock do
+            if game.Workspace.CurrentCamera and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") and game.Workspace.CurrentCamera.CameraSubject ~= game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") and game.Workspace.CurrentCamera.CameraSubject == game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name.."'s_falsehead") then
+               game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiJack = Tab2:AddToggle({
+      Name = "Anti Hallow - Jack",
+      Default = false,
+      Callback = function(Value)
+         game.Players.LocalPlayer.PlayerScripts.HallowJackAbilities.Disabled = Value
+      end    
+   })
+
+   AntiBooster = Tab2:AddToggle({
+      Name = "Anti Booster",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiBooster = Value
+         while _G.AntiBooster do
+            for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+               if v.Name == "BoosterObject" then
+                  v:Destroy()
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiSquid = Tab2:AddToggle({
+      Name = "Anti Squid",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiSquid = Value
+         if _G.AntiSquid == false then
+            game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = true
+         end
+         while _G.AntiSquid do
+            if game.Players.LocalPlayer.PlayerGui:FindFirstChild("SquidInk") then
+               game.Players.LocalPlayer.PlayerGui.SquidInk.Enabled = false
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiConveyor = Tab2:AddToggle({
+      Name = "Anti Conveyor",
+      Default = false,
+      Callback = function(Value)
+         game.Players.LocalPlayer.PlayerScripts.ConveyorVictimized.Disabled = Value
+      end    
+   })
+
+   AntiNightmareAndPotion = Tab2:AddToggle({
+      Name = "Anti Nightmare & Potion",
+      Default = false,
+      Callback = function(Value)
+         if Value == true then
+            game.Players.LocalPlayer.PlayerScripts.VFXListener.NightmareEffect.Parent = game.Lighting
+         else
+            game.Players.LocalPlayer.PlayerScripts.VFXListener.NightmareEffect.Parent = game.Players.LocalPlayer.PlayerScripts.VFXListener
+         end
+      end    
+   })
+
+   AntiIceAndPotion = Tab2:AddToggle({
+      Name = "Anti Ice & Potion",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiIce = Value
+         while _G.AntiIce do
+            for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+               if v.Name == "Icecube" then
+                  v:Destroy()
+                  game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+                  game.Players.LocalPlayer.Character.Humanoid.AutoRotate = true
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiRun = Tab2:AddToggle({
+      Name = "Anti Run",
+      Default = false,
+      Callback = function(Value)
+         _G.AutoExit = Value
+         while _G.AutoExit do
+            if game.Players.LocalPlayer.Character:FindFirstChild("InLabyrinth") ~= nil then
+               for _, v in next, workspace:GetChildren() do
+                  if string.find(v.Name, "Labyrinth") and v:FindFirstChild("Doors") then
+                     for _, y in ipairs(v.Doors:GetChildren()) do
+                        if y:FindFirstChild("Hitbox") and y.Hitbox:FindFirstChild("TouchInterest") then
+                           firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), y.Hitbox, 0)
+                           firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), y.Hitbox, 1)
+                        end
+                     end
+                  end
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiBrick = Tab2:AddToggle({
+      Name = "Anti Brick",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiBrick = Value
+         while _G.AntiBrick do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.Name == "Union" then
+                  v.CanTouch = false
+                  v.CanQuery = false
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+   AntiReda = Tab2:AddToggle({
+      Name = "Anti [REDACTED]",
+      Default = false,
+      Callback = function(Value)
+         game.Players.LocalPlayer.PlayerScripts.Well.Disabled = Value
+      end    
+   })
+
+   AntiBrazil = Tab2:AddToggle({
+      Name = "Anti Brazil (not 100% bypass)",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiBrazil = Value
+         while _G.AntiBrazil do
+            for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+               if v.CanTouch == true then
+                  v.CanTouch = false
+               end
+            end
+            task.wait()
+         end
+         if _G.AntiBrazil == false then
+            for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
+               if v.CanTouch == false then
+                  v.CanTouch = true
+               end
+            end
+         end
+      end    
+   })
+
+   AntiZa = Tab2:AddToggle({
+      Name = "Anti Za Hando",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiZaHando = Value
+         while _G.AntiZaHando do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.ClassName == "Part" and v.Name == "Part" then
+                  v:Destroy()
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiFort = Tab2:AddToggle({
+      Name = "Anti Fort",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiFort = Value
+         while _G.AntiFort do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.Name == "Part" then
+                  v.CanCollide = false
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiReaper = Tab2:AddToggle({
+      Name = "Anti Death Mark(Reaper)",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiReaper = Value
+         while _G.AntiReaper do
+            for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+               if v.Name == "DeathMark" then
+                  game:GetService("ReplicatedStorage").ReaperGone:FireServer(game:GetService("Players").LocalPlayer.Character.DeathMark)
+                  game:GetService("Lighting"):WaitForChild("DeathMarkColorCorrection"):Destroy() 
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiPusher = Tab2:AddToggle({
+      Name = "Anti Pusher",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiPusher = Value
+         while _G.AntiPusher do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if v.Name == "wall" then
+                  v.CanCollide = false
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiDefend = Tab2:AddToggle({
+      Name = "Anti Defend",
+      Default = false,
+      Callback = function(Value)
+         _G.NoclipBarrier = Value
+         if _G.NoclipBarrier == false then
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if string.find(v.Name, "ÅBarrier") then
+                  if v.CanCollide == false then
+                     v.CanCollide = true
+                  end
+               end
+            end
+         end
+         while _G.NoclipBarrier do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if string.find(v.Name, "ÅBarrier") then
+                  if v.CanCollide == true then
+                     v.CanCollide = false
+                  end
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiAttackPlank = Tab2:AddToggle({
+      Name = "Anti Plank",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiPlank = Value
+         while _G.AntiPlank do
+            for i,v in pairs(game.Workspace:GetChildren()) do
+               if string.find(v.Name, "'s Plank") and v.ClassName == "Part" then
+                  v.CanTouch = false
+                  v.CanQuery = false
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiBubble = Tab2:AddToggle({
+      Name = "Anti Bubble",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiBubble = Value
+         while _G.AntiBubble do
+            for i,v in pairs(workspace:GetChildren()) do
+               if v.Name == "BubbleObject" and v:FindFirstChild("Weld") then
+                  v:FindFirstChild("Weld"):Destroy()
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiStun = Tab2:AddToggle({
+      Name = "Anti Stun",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiStun = Value
+         while _G.AntiStun do
+            if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Workspace:FindFirstChild("Shockwave") and game.Players.LocalPlayer.Character.Ragdolled.Value == false then
+               game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   AntiCOD = Tab2:AddToggle({
+      Name = "Anti Cube Of Death (not 100%)",
+      Default = false,
+      Callback = function(Value)
+         if Value == true then
+            if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) and game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"]:FindFirstChild("Part") then
+               game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = false
+               game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].Part.CanTouch = false
+            end
+         else
+            if game.Workspace:FindFirstChild("the cube of death(i heard it kills)", 1) and game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"]:FindFirstChild("Part") then
+               game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].CanTouch = true
+               game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"].Part.CanTouch = true
+            end
+         end
+      end    
+   })
+
+   AntiDeath = Tab2:AddToggle({
+      Name = "Anti Death Barriers",
+      Default = false,
+      Callback = function(Value)
+         if Value == true then
+            for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+               if v.ClassName == "Part" and v.Name == "BLOCK" then
+                  v.CanTouch = false
+               end
+            end
+            workspace.DEATHBARRIER.CanTouch = false
+            workspace.DEATHBARRIER2.CanTouch = false
+            workspace.dedBarrier.CanTouch = false
+            workspace.ArenaBarrier.CanTouch = false
+            workspace.AntiDefaultArena.CanTouch = false
+         else
+            for i,v in pairs(game.Workspace.DEATHBARRIER:GetChildren()) do
+               if v.ClassName == "Part" and v.Name == "BLOCK" then
+                  v.CanTouch = true
+               end
+            end
+            workspace.DEATHBARRIER.CanTouch = true
+            workspace.DEATHBARRIER2.CanTouch = true
+            workspace.dedBarrier.CanTouch = true
+            workspace.ArenaBarrier.CanTouch = true
+            workspace.AntiDefaultArena.CanTouch = true
+         end
+      end    
+   })
+
+   AntiRagdoll = Tab2:AddToggle({
+      Name = "Anti Ragdoll",
+      Default = false,
+      Callback = function(Value)
+         _G.AntiRagdoll = Value
+         while _G.AntiRagdoll do
+            if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character:FindFirstChild("Torso") and game.Players.LocalPlayer.Character:FindFirstChild("Ragdolled") then
+               if game.Players.LocalPlayer.Character:FindFirstChild("Ragdolled") and game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true then
+                  repeat task.wait()
+                     if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
+                        game.Players.LocalPlayer.Character.Torso.Anchored = true
+                     end
+                  until game.Players.LocalPlayer.Character:FindFirstChild("Ragdolled") and game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
+                  if game.Players.LocalPlayer.Character:FindFirstChild("Torso") then
+                     game.Players.LocalPlayer.Character.Torso.Anchored = false
+                  end
+               end
+            end
+            task.wait()
+         end
+      end    
+   })
+
+   while task.wait(0.5) do
+      ServerPlayer:Set("Players: "..#game.Players:GetPlayers().." / "..game.Players.MaxPlayers)
+      Glove:Set("My Glove: "..game.Players.LocalPlayer.leaderstats.Glove.Value)
+      ViewAgeServer:Set(game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text)
+      CodeKeypad:Set("Keypad Code: "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7))
+      GraveTimer:Set("Next Grave Teleport: "..game.workspace.Halloween.SignStuff.Sign.SG1.T.Text)
+      if not game.Workspace:FindFirstChild("Keypad") then
+         KeypadSpawn:Set("Keypad Spawned: No")
+      else
+         KeypadSpawn:Set("Keypad Spawned: Yes")
+      end
+      if not game.Workspace:FindFirstChild("Toolbox") then
+         ToolboxSpawn:Set("Toolbox Spawned: No")
+      else  
+         ToolboxSpawn:Set("Toolbox Spawned: Yes")
+      end
+      if not game.Workspace:FindFirstChild("SiphonOrb") then
+         SiphonOrbSpawn:Set("Siphon Orb Spawned: No")
+      else
+         SiphonOrbSpawn:Set("Siphon Orb Spawned: Yes")
+      end
+      CheckSlap:Set("My Slaps: "..game.Players.LocalPlayer.leaderstats.Slaps.Value)
+      PositionYou:Set("My Position "..tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X)..", ".. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y)..", "..math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)))
+      if game.Players.LocalPlayer.Character:FindFirstChild("rock") then
+         WalkspeedYou:Set("🗿")
+         JumppowerYou:Set("🗿")
+      else
+         WalkspeedYou:Set("My Walk Speed: "..game.Players.LocalPlayer.Character.Humanoid.WalkSpeed)
+         JumppowerYou:Set("My Jump Power: "..game.Players.LocalPlayer.Character.Humanoid.JumpPower)
+      end
+      CanYouFps:Set("FPS: "..math.floor(workspace:GetRealPhysicsFPS()))
+      CanYouPing:Set("Ping: "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString())
+      AgeAccYou:Set("Account Age: "..game.Players.LocalPlayer.AccountAge)
+
+      if not game.Workspace:FindFirstChild("Gravestone") then
+         GraveSpawned:Set("Grave Spawned: No")
+      else
+         GraveSpawned:Set("Grave Spawned: Yes")
+      end
+   end
+end
+OrionLib:Init()
